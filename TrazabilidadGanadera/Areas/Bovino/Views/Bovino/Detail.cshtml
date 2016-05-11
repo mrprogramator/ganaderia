@@ -1,0 +1,52 @@
+﻿@model TrazabilidadGanadera.Areas.Bovino.Models.Bovino
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Detalle de Bovino";
+}
+
+<div class="container" style="margin:20px auto; max-width:600px">
+    <h2 class="page-header">Detalle de Bovino</h2>
+    <div class="form-group">
+        <label class="control-label">
+            Id
+        </label>
+        <p class="form-static">
+            @Model.Id
+        </p>
+    </div>
+    <div class="form-group">
+        <label class="control-label">
+            Nombre
+        </label>
+        <p class="form-static">
+            @Model.Nombre
+        </p>
+    </div>
+    <div class="form-group">
+        <label class="control-label">
+            Padre
+        </label>
+        <p class="form-static">
+            @Model.PadreNombre
+        </p>
+    </div>
+    <div class="form-group">
+        <label class="control-label">
+            Madre
+        </label>
+        <p class="form-static">
+            @Model.MadreNombre
+        </p>
+    </div>
+    <div class="form-group">
+        <label class="control-label">
+            Categoría
+        </label>
+        <p class="form-static">
+            @Model.CategoriaNombre
+        </p>
+    </div>
+    <div class="text-right">
+        <a class="btn btn-primary" onclick="history.back()">Volver</a>
+    </div>
+</div>

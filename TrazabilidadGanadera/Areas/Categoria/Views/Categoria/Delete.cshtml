@@ -1,0 +1,70 @@
+﻿@model TrazabilidadGanadera.Areas.Categoria.Models.Categoria
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Detail";
+}
+
+<div class="container" style="margin:20px auto; max-width:600px">
+    @foreach (ModelState modelState in ViewData.ModelState.Values)
+    {
+        if (modelState.Errors.Count > 0)
+        {
+            <div class="alert alert-danger">
+                <span class="glyphicon glyphicon-danger-sign"></span>
+                <strong>Error</strong>
+                @{
+                    foreach (ModelError error in modelState.Errors)
+                    {
+                        <p>@error.ErrorMessage</p>
+                    }
+                }
+            </div>
+        }
+            
+    }
+    <h2 class="page-header">Eliminar Categoría</h2>
+    <form method="post" class="panel panel-danger">
+        <div class="panel-heading">
+            ¿Está seguro que desea eliminar la siguiente <strong>categoría</strong>?
+        </div>
+        <div class="container" style="padding:20px">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Id, new { @class="form-static"})
+                <p class="form-static">
+                    @Model.Id
+                </p>
+                @Html.HiddenFor(m => m.Id)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Nombre, new { @class="form-static"})
+                <p class="form-static">
+                    @Model.Nombre
+                </p>
+                @Html.HiddenFor(m => m.Nombre)
+            </div>
+            <div class="form-group">
+                <label class="label-control">
+                    Descripción
+                </label>
+                <p class="form-static">
+                    @Model.Descripcion
+                </p>
+                @Html.HiddenFor(m => m.Descripcion)
+            </div>
+            <div class="form-group">
+                <label class="label-control">
+                    Sexo
+                </label>
+                <p class="form-static">
+                    @Model.SexoNombre
+                </p>
+                @Html.HiddenFor(m => m.SexoId)
+                </div>
+        </div>
+        <div class="text-right" style="padding-right:10px; padding-bottom:10px">
+                <a class="btn btn-default" onclick="history.back()">Cancelar</a>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </div>
+    </form>
+    
+</div>

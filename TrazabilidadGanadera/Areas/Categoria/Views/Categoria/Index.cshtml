@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TrazabilidadGanadera.Areas.Categoria.Models.Categoria>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <h2 class="page-header">Categorías</h2>
+    <div class="panel panel-default with-table">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <a class="btn btn-sm btn-primary btn-default" href="categoria/create">
+                            <span class="glyphicon glyphicon-file"></span>
+                            Nuevo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th></th>
+                </tr>
+            @if (Model.Count().Equals(0))
+            {
+                <tr>
+                    <td colspan="3">
+                        No hay registros
+                    </td>
+                </tr> 
+            }
+            @foreach (var categoria in Model)
+            {
+                 <tr>
+                     <td>
+                         @categoria.Nombre
+                     </td>
+                     <td>
+                         @categoria.Descripcion
+                     </td>
+                     <td class="text-right">
+                         <a href="categoria/detail?id=@categoria.Id" class="btn btn-default btn-xs">
+                             <span class="glyphicon glyphicon-eye-open"></span>
+                             Detalles
+                         </a>
+                         <a href="categoria/edit?id=@categoria.Id" class="btn btn-default btn-xs">
+                             <span class="glyphicon glyphicon-pencil"></span>
+                             Modificar
+                         </a>
+                         <a href="categoria/delete?id=@categoria.Id" class="btn btn-default btn-xs">
+                             <span class="glyphicon glyphicon-remove"></span>
+                             Eliminar
+                         </a>
+                     </td>
+                 </tr>
+            }
+            </table>
+
+    </div>
+</div>
+

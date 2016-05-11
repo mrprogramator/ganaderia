@@ -1,0 +1,44 @@
+﻿@model TrazabilidadGanadera.Areas.Categoria.Models.Categoria
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Detail";
+}
+
+<div class="container" style="margin:20px auto; max-width:600px">
+    <h2 class="page-header">Detalle de Categoría</h2>
+    <div class="form-group">
+        <label class="control-label">
+            Id
+        </label>
+        <p class="form-static">
+            @Model.Id
+        </p>
+    </div>
+    <div class="form-group">
+        <label class="control-label">
+            Nombre
+        </label>
+        <p class="form-static">
+            @Model.Nombre
+        </p>
+    </div>
+    <div class="form-group">
+        <label class="control-label">
+            Descripción
+        </label>
+        <p class="form-static">
+            @Model.Descripcion
+        </p>
+    </div>
+    <div class="form-group">
+        <label class="control-label">
+            Sexo
+        </label>
+        <p class="form-static">
+            @Model.SexoNombre
+        </p>
+    </div>
+    <div class="text-right">
+        <a class="btn btn-primary" onclick="history.back()">Volver</a>
+    </div>
+</div>

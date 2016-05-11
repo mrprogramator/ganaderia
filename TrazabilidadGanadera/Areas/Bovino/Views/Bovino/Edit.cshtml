@@ -1,0 +1,58 @@
+﻿@model TrazabilidadGanadera.Areas.Bovino.Models.Bovino
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Editar Bovino";
+}
+<div class="container" style="margin:20px auto; max-width:800px">
+    @foreach (ModelState modelState in ViewData.ModelState.Values)
+    {
+        if (modelState.Errors.Count > 0)
+        {
+            <div class="alert alert-danger">
+                <span class="glyphicon glyphicon-danger-sign"></span>
+                <strong>Error</strong>
+                @{
+                    foreach (ModelError error in modelState.Errors)
+                    {
+                        <p>@error.ErrorMessage</p>
+                    }
+                }
+            </div>
+        }
+            
+    }
+    <form method="post">
+        <h2 class="page-header">Editar Bovino</h2>
+        @Html.HiddenFor(m => m.Id)
+        <div class="form-group">
+            <label class="control-label">
+                Nombre
+            </label>
+            @Html.TextBoxFor(m => m.Nombre, new { @class="form-control", @placeholder="Ingrese el nombre del bovino", @required="true"})
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Padre
+            </label>
+            @Html.DropDownListFor(m => m.PadreId, Model.Padres, new { @class="form-control"})
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Madre
+            </label>
+            @Html.DropDownListFor(m => m.MadreId, Model.Madres, new { @class="form-control"})
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Categoría
+            </label>
+            @Html.DropDownListFor(m => m.CategoriaId, Model.Categorias, new { @class="form-control", @required="true"})
+        </div>
+        <div class="text-right">
+            <a class="btn btn-link" onclick="window.history.back()">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+    
+
+</div>
